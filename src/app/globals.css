@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f7;
+  --bg-tertiary: #e8e8ed;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-tertiary: #86868b;
+  --accent: #0071e3;
+  --accent-hover: #0077ED;
+  --border: #d2d2d7;
+  --border-light: #e5e5ea;
+  --success: #34c759;
+  --warning: #ff9f0a;
+  --danger: #ff3b30;
+  --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --sidebar-width: 260px;
+  --media-sidebar-width: 300px;
+}
+
+@theme inline {
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+.apple-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.apple-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+}
+.apple-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.apple-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  outline: none;
+}
+.apple-btn-primary {
+  background: var(--accent);
+  color: white;
+}
+.apple-btn-primary:hover {
+  background: var(--accent-hover);
+  transform: scale(1.02);
+}
+.apple-btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+.apple-btn-secondary:hover {
+  background: var(--border);
+}
+.apple-btn-danger {
+  background: var(--danger);
+  color: white;
+}
+.apple-btn-danger:hover {
+  background: #e0342b;
+}
+.apple-btn-ghost {
+  background: transparent;
+  color: var(--accent);
+}
+.apple-btn-ghost:hover {
+  background: rgba(0, 113, 227, 0.08);
+}
+.apple-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.apple-card {
+  background: var(--bg-primary);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.apple-card:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.calendar-cell {
+  min-height: 100px;
+  border: 1px solid var(--border-light);
+  padding: 4px;
+  transition: background 0.15s;
+}
+.calendar-cell:hover {
+  background: var(--bg-secondary);
+}
+.calendar-cell.today {
+  background: rgba(0, 113, 227, 0.05);
+}
+.calendar-event {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
